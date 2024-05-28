@@ -22,14 +22,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         tableview.register(UINib(nibName: "UserTableViewCell", bundle: nil), forCellReuseIdentifier: "List")
         viewmodelobj.protocolObj = self
-//        viewmodelobj.Api_call()
-        DispatchQueue.main.async {
-            // Fetch data from Realm on the main thread
-            let realm = try! Realm()
-            let results = realm.objects(UniversityModel.self)
-            self.UserList = Array(results)
-            self.tableview.reloadData()
-        }
+        viewmodelobj.Api_call()
+        // DispatchQueue.main.async {
+        //     // Fetch data from Realm on the main thread
+        //     let realm = try! Realm()
+        //     let results = realm.objects(UniversityModel.self)
+        //     self.UserList = Array(results)
+        //     self.tableview.reloadData()
+        // }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
